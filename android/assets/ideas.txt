@@ -1,0 +1,10 @@
+Ludum Dare #29 - Ideas
+
+-- Theme: BENEATH THE SURFACE
+
+- Mining/Digging Underground
+	- "Tunnel to the Center of the Earth"
+
+- "Fish eat smaller fish and grow bigger"
+	- Start off as a microscopic organism and grow from there?
+	- Finish by mutating into a whale and "suck" up all life in the sea?
