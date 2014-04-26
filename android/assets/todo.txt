@@ -2,6 +2,9 @@
 
 - AI
     - Movement AI for each species
+    - Automatic deploying of semi-random species in random locations
+        - Maybe make them start at either end of the screen and move to the opposite end?
+        - Move in a stright line unless it detects the Player?
 
 - Art
     - Animation
@@ -16,6 +19,11 @@
     - Eating (Collision Detection)
     - Swimming (Movement)
     - Growth (Mutation to next "highest" Species)
+    
+- Sound
+    - Background music if possible
+    - Eating sound effects
+    - Maybe random "ocean" sounds?
 
 
 
