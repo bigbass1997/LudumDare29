@@ -5,10 +5,14 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
+import tm.info.bigbass1997.ld29.entities.species.Algae;
+import tm.info.bigbass1997.ld29.entities.species.Species;
 import tm.info.bigbass1997.ld29.managers.GameStateManager;
 
 public class Player extends GameObject {
-
+	
+	public Species species;
+	
 	public Player(GameStateManager gsm) {
 		super(gsm);
 		
@@ -17,7 +21,9 @@ public class Player extends GameObject {
 		width = 64;
 		height = 64;
 		
-		speed = 70.0f;
+		speed = 0.0f;
+		
+		setSpecies(new Algae());
 	}
 
 	@Override
@@ -46,5 +52,12 @@ public class Player extends GameObject {
 	@Override
 	public void draw() {
 		gsm.dm.Rect(x, y, width, height, 0x00FF00, ShapeType.Filled);
+	}
+	
+	public void setSpecies(Species species){
+		this.species = species;
+		speed = species.speed;
+		width = species.width;
+		height = species.height;
 	}
 }

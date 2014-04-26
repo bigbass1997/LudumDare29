@@ -1,0 +1,24 @@
+-- Ludum Dare 29 -- Todo List
+
+- AI
+    - Movement AI for each species
+
+- Art
+    - Animation
+        - Player
+        - Other Organisms
+        - Water movement?
+    - Sprites
+        - Player
+        - Default Sprites for each Species
+
+- Mechanics
+    - Eating (Collision Detection)
+    - Swimming (Movement)
+    - Growth (Mutation to next "highest" Species)
+
+
+
+
+
+http://media.web.britannica.com/eb-media/99/95199-036-D579DC4A.jpg
