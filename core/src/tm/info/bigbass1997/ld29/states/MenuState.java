@@ -1,7 +1,5 @@
 package tm.info.bigbass1997.ld29.states;
 
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-
 import tm.info.bigbass1997.ld29.managers.GameStateManager;
 
 public class MenuState extends GameState {
@@ -21,7 +19,7 @@ public class MenuState extends GameState {
 	}
 
 	@Override
-	public void draw(ShapeRenderer sr) {
+	public void draw() {
 		
 	}
 

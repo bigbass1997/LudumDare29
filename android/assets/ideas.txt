@@ -5,6 +5,7 @@ Ludum Dare #29 - Ideas
 - Mining/Digging Underground
 	- "Tunnel to the Center of the Earth"
 
-- "Fish eat smaller fish and grow bigger"
+- "Fish eat smaller fish and grow bigger" (or mutate)
 	- Start off as a microscopic organism and grow from there?
 	- Finish by mutating into a whale and "suck" up all life in the sea?
+		- Name Idea: "Ocean Extinction"
