@@ -25,6 +25,13 @@ public class DrawManager {
 		sr.end();
 	}
 	
+	public void Polygon(float[] vertices, int color, ShapeType type){
+		sr.setColor(new Color(color));
+		sr.begin(type);
+		sr.polygon(vertices);
+		sr.end();
+	}
+	
 	public void String(String s, float x, float y, BitmapFont font, int color){
 		font.setColor(Color.WHITE); //Resets color
 		font.setColor(new Color(color));

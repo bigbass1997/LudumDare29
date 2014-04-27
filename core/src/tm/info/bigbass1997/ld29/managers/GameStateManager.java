@@ -3,6 +3,7 @@ package tm.info.bigbass1997.ld29.managers;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import tm.info.bigbass1997.ld29.entities.Player;
+import tm.info.bigbass1997.ld29.entities.species.OrganismManager;
 import tm.info.bigbass1997.ld29.states.GameState;
 import tm.info.bigbass1997.ld29.states.MenuState;
 import tm.info.bigbass1997.ld29.states.PlayState;
@@ -22,12 +23,16 @@ public class GameStateManager {
 	public FontManager fm;
 	public DrawManager dm;
 	
+	public OrganismManager om;
+	
 	public Player player;
 	
 	public GameStateManager(){
 		sr = new ShapeRenderer();
 		fm = new FontManager();
 		dm = new DrawManager(sr);
+		
+		om = new OrganismManager(this);
 		
 		menuState = new MenuState(this);
 		playState = new PlayState(this);

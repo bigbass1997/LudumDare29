@@ -3,8 +3,12 @@ package tm.info.bigbass1997.ld29.entities;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Polygon;
 
+import tm.info.bigbass1997.ld29.GraphicsMain;
 import tm.info.bigbass1997.ld29.entities.species.Algae;
 import tm.info.bigbass1997.ld29.entities.species.Species;
 import tm.info.bigbass1997.ld29.managers.GameStateManager;
@@ -13,13 +17,13 @@ public class Player extends GameObject {
 	
 	public Species species;
 	
+	private TextureRegion texture;
+	private Sprite sprite;
+	
+	public Polygon hitbox;
+	
 	public Player(GameStateManager gsm) {
-		super(gsm);
-		
-		x = 100;
-		y = 100;
-		width = 64;
-		height = 64;
+		super(gsm, 100, 100, 64, 64);
 		
 		speed = 0.0f;
 		
@@ -47,11 +51,29 @@ public class Player extends GameObject {
 		
 		x += dx * delta;
 		y += dy * delta;
+		
+		if(x > GraphicsMain.sWidth - width) x = GraphicsMain.sWidth - width;
+		else if(x < 0) x = 0;
+		
+		if(y > GraphicsMain.sHeight - height) y = GraphicsMain.sHeight - height;
+		else if(y < 0) y = 0;
+		
+		sprite.setPosition(x, y - sprite.getHeight() + height);
+		
+		hitbox.setVertices(new float[]{x, y, x + width, y, x + width, y + height, x, y + height});
+		
+		if(remove) dispose();
 	}
 
 	@Override
 	public void draw() {
-		gsm.dm.Rect(x, y, width, height, 0x00FF00, ShapeType.Filled);
+		if(!remove){
+			GraphicsMain.batch.begin();
+			sprite.draw(GraphicsMain.batch);
+			GraphicsMain.batch.end();
+			
+			gsm.dm.Polygon(hitbox.getVertices(), 0x00FFFFFF, ShapeType.Line);
+		}
 	}
 	
 	public void setSpecies(Species species){
@@ -59,5 +81,19 @@ public class Player extends GameObject {
 		speed = species.speed;
 		width = species.width;
 		height = species.height;
+		
+		hitbox = new Polygon(new float[]{x, y, x + width, y, x + width, y + height, x, y + height});
+		
+		texture = gsm.om.regions.get(species.type);
+		sprite = new Sprite(texture);
+	}
+	
+	public void kill(){
+		System.out.println("YOU HAVE BEEN KILLED");
+	}
+	
+	public void dispose(){
+		texture.getTexture().dispose();
+		sprite.getTexture().dispose();
 	}
 }

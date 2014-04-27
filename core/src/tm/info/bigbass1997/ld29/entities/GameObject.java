@@ -11,6 +11,8 @@ public abstract class GameObject {
 	
 	public float width, height;
 	
+	public boolean remove;
+	
 	public GameStateManager gsm;
 
 	public GameObject(GameStateManager gsm){
@@ -19,6 +21,11 @@ public abstract class GameObject {
 	
 	public GameObject(GameStateManager gsm, float x, float y, float width, float height){
 		this.gsm = gsm;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		remove = false;
 	}
 	
 	public abstract void update(float delta);
